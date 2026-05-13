@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { TopBar, Button, Card, Avatar, Input, Spinner } from "@wondr/design-system";
 import { api } from "../../../core/api/client";
-import { useAuth } from "../../../core/auth/useAuth";
 import { usePayment } from "../../../shared/hooks/usePayment";
 
 interface Doctor { id: string; name: string; specialty: string; photo: string; consultation_fee: number; }
@@ -11,7 +10,6 @@ export const BookingSummary = () => {
   const { doctorId } = useParams<{ doctorId: string }>();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
   const { pay, isProcessing, error: paymentError } = usePayment();
 
   const slotId = searchParams.get("slotId") || "";
@@ -20,8 +18,8 @@ export const BookingSummary = () => {
 
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [loading, setLoading] = useState(true);
-  const [patientName, setPatientName] = useState(user?.name || "");
-  const [patientPhone, setPatientPhone] = useState(user?.phone || "");
+  const [patientName, setPatientName] = useState("");
+  const [patientPhone, setPatientPhone] = useState("");
   const [notes, setNotes] = useState("");
 
   useEffect(() => { api.get<Doctor>(`/partners/rspi/doctors/${doctorId}`).then(setDoctor).finally(() => setLoading(false)); }, [doctorId]);

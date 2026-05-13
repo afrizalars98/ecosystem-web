@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TopBar, Button, Card, Input, Spinner } from "@wondr/design-system";
 import { api } from "../../../core/api/client";
-import { useAuth } from "../../../core/auth/useAuth";
 import { usePayment } from "../../../shared/hooks/usePayment";
 
 interface CartItemResponse { product: { id: string; name: string; price: number }; quantity: number; subtotal: number; }
@@ -10,12 +9,11 @@ interface CartResponse { items: CartItemResponse[]; total: number; }
 
 export const OrderSummary = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const { pay, isProcessing, error: paymentError } = usePayment();
   const [cart, setCart] = useState<CartResponse | null>(null);
   const [loading, setLoading] = useState(true);
-  const [shippingName, setShippingName] = useState(user?.name || "");
-  const [shippingPhone, setShippingPhone] = useState(user?.phone || "");
+  const [shippingName, setShippingName] = useState("");
+  const [shippingPhone, setShippingPhone] = useState("");
   const [shippingAddress, setShippingAddress] = useState("");
   const [notes, setNotes] = useState("");
 
