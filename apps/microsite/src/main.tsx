@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "@wondr/design-system";
+import "@wondr/design-system/dist/style.css";
 import "./index.css";
 import { App } from "./App";
 
