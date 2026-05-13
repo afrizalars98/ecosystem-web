@@ -12,3 +12,5 @@ export { Spinner } from "./Spinner";
 export type { SpinnerProps } from "./Spinner";
 export { Skeleton } from "./Skeleton";
 export type { SkeletonProps } from "./Skeleton";
+export { Toast, ToastProvider, useToast } from "./Toast";
+export type { ToastProps } from "./Toast";
