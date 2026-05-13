@@ -30,6 +30,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const token = params.get("token");
 
     if (!token) {
+      // Dev bypass: skip auth in development mode
+      if (import.meta.env.DEV) {
+        setUser({
+          id: "dev-user-001",
+          wondr_user_id: "wondr-dev-123",
+          name: "Dev User",
+          phone: "+6281234567890",
+        });
+        setIsLoading(false);
+        return;
+      }
       setError("Token tidak ditemukan. Silakan buka dari aplikasi wondr.");
       setIsLoading(false);
       return;
