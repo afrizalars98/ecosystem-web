@@ -1,0 +1,13 @@
+{
+  "name": "wondr-ecosystem-web",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @wondr/microsite dev",
+    "build": "pnpm --filter @wondr/design-system build && pnpm --filter @wondr/microsite build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
