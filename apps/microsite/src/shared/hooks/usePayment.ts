@@ -3,7 +3,7 @@ import { api } from "../../core/api/client";
 
 interface PaymentPayload {
   partner_id: string;
-  transaction_type: "booking" | "order";
+  transaction_type: "booking" | "order" | "ticket";
   payload: Record<string, unknown>;
   amount: number;
 }

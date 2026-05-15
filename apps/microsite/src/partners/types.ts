@@ -5,7 +5,7 @@ export interface PartnerPlugin {
   name: string;
   description: string;
   icon: string;
-  category: "healthcare" | "shopping";
+  category: "healthcare" | "shopping" | "event";
   routes: RouteObject[];
   searchKeywords: string[];
 }
