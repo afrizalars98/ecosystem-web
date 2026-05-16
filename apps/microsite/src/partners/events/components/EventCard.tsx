@@ -24,9 +24,15 @@ function formatDate(iso: string) {
   return `${day} ${date} · ${time}`;
 }
 
+// Compact format — horizontal scroll rail only (constrained 220px card width)
 function formatPrice(idr: number) {
-  if (idr >= 1000000) return `Rp ${(idr / 1000).toLocaleString("id-ID")}K`;
-  return `Rp ${(idr / 1000).toFixed(0)}K`;
+  if (idr >= 1_000_000) return `Rp ${(idr / 1_000_000).toFixed(1)}M`;
+  return `Rp ${(idr / 1_000).toFixed(0)}K`;
+}
+
+// Full Indonesian locale format — vertical list card
+function formatPriceFull(idr: number) {
+  return `Rp ${idr.toLocaleString("id-ID")}`;
 }
 
 // Horizontal card (for scroll rail)
@@ -92,7 +98,7 @@ export function EventCardV({ event, onClick }: { event: EventSummary; onClick: (
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: 13, color: "var(--we-ink)", fontWeight: 600 }}>
             <span style={{ fontFamily: "var(--ff-mono)", fontSize: 9, color: "var(--we-muted)", fontWeight: 400, marginRight: 4, letterSpacing: ".08em", textTransform: "uppercase" }}>From</span>
-            {formatPrice(event.from_price_idr)}
+            {formatPriceFull(event.from_price_idr)}
           </span>
           {event.tag && (
             <span style={{
