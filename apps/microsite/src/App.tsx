@@ -4,6 +4,7 @@ import { createAppRouter } from "./core/router";
 import "./partners/rspi";
 import "./partners/sarinah";
 import "./partners/pocari";
+import "./partners/events";
 
 const router = createAppRouter();
 

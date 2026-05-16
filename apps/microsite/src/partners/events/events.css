@@ -1,0 +1,34 @@
+/* Wondr Events — child theme tokens (extends Aurora tokens.css) */
+:root {
+  --we-ink: #0E1530;
+  --we-ink-2: #1F2647;
+  --we-primary: #0E7F71;
+  --we-primary-2: #10A091;
+  --we-primary-50: #E8F3F1;
+  --we-primary-100: #CDE6E1;
+  --we-accent: #FF6A3D;
+  --we-accent-2: #FF8961;
+  --we-accent-50: #FFE9DF;
+  --we-gold: #C8A031;
+  --we-gold-50: #FAF1D6;
+  --we-paper: #FAFAF7;
+  --we-surface: #FFFFFF;
+  --we-mute: #F2F4F2;
+  --we-line: #E6E8E5;
+  --we-line-2: #D9DCD7;
+  --we-muted: #6B7080;
+  --we-soft: #8A8FA3;
+  --cat-sport: #2A9D8F;
+  --cat-music: #7C3AED;
+  --cat-festival: #E76F51;
+  --cat-food: #D08C00;
+  --cat-culture: #2A6FDB;
+  --t-display: 28px;
+  --t-h1: 24px;
+  --t-h2: 20px;
+  --t-h3: 17px;
+  --t-body: 15px;
+  --t-sm: 13px;
+  --t-xs: 11px;
+  --t-mono: 11px;
+}
