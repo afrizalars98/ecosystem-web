@@ -86,10 +86,11 @@ export function DiscoveryHub() {
             boxShadow: "0 12px 30px rgba(10,14,31,.18)",
           }}
         >
-          <div style={{
-            position: "absolute", inset: 0,
-            background: "linear-gradient(135deg, #7C3AED 0%, #2A6FDB 100%)",
-          }} />
+          {featured.hero_image_url ? (
+            <img src={featured.hero_image_url} alt={featured.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          ) : (
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #7C3AED 0%, #2A6FDB 100%)" }} />
+          )}
           <div style={{
             position: "absolute", inset: 0,
             background: "linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.7) 100%)",

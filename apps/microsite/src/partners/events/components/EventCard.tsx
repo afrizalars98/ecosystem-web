@@ -37,7 +37,11 @@ export function EventCardH({ event, onClick }: { event: EventSummary; onClick: (
       style={{ width: 220, flexShrink: 0, background: "var(--we-surface)", border: "1px solid var(--we-line)", borderRadius: 16, overflow: "hidden", cursor: "pointer", display: "flex", flexDirection: "column" }}
     >
       <div style={{ height: 120, position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: CAT_GRADIENTS[event.category] || "var(--we-mute)" }} />
+        {event.hero_image_url ? (
+          <img src={event.hero_image_url} alt={event.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        ) : (
+          <div style={{ position: "absolute", inset: 0, background: CAT_GRADIENTS[event.category] || "var(--we-mute)" }} />
+        )}
         <div style={{ position: "absolute", top: 8, left: 8, background: "rgba(255,255,255,.92)", backdropFilter: "blur(6px)", color: "var(--we-ink)", fontFamily: "var(--ff-mono)", fontSize: "8.5px", letterSpacing: ".08em", padding: "4px 7px", borderRadius: 999, textTransform: "uppercase", fontWeight: 500 }}>
           {event.partner.name}
         </div>
@@ -71,7 +75,11 @@ export function EventCardV({ event, onClick }: { event: EventSummary; onClick: (
       style={{ margin: "0 20px 12px", background: "var(--we-surface)", border: "1px solid var(--we-line)", borderRadius: 16, overflow: "hidden", display: "grid", gridTemplateColumns: "96px 1fr", cursor: "pointer" }}
     >
       <div style={{ position: "relative" }}>
-        <div style={{ position: "absolute", inset: 0, background: CAT_GRADIENTS[event.category] || "var(--we-mute)" }} />
+        {event.hero_image_url ? (
+          <img src={event.hero_image_url} alt={event.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        ) : (
+          <div style={{ position: "absolute", inset: 0, background: CAT_GRADIENTS[event.category] || "var(--we-mute)" }} />
+        )}
       </div>
       <div style={{ padding: "12px 14px" }}>
         <div style={{ fontFamily: "var(--ff-mono)", fontSize: "9.5px", color: "var(--we-muted)", letterSpacing: ".08em", textTransform: "uppercase", marginBottom: 4 }}>

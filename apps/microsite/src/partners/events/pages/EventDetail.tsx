@@ -72,7 +72,11 @@ export function EventDetailPage() {
     <div style={{ background: "var(--we-paper)", minHeight: "100vh", maxWidth: 375, margin: "0 auto", position: "relative", fontFamily: "var(--ff-sans)", color: "var(--we-ink)", paddingBottom: 140 }}>
       {/* Hero */}
       <div style={{ position: "relative", height: 280, overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: CAT_GRADIENTS[event.category] || "var(--we-ink)" }} />
+        {event.hero_image_url ? (
+          <img src={event.hero_image_url} alt={event.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        ) : (
+          <div style={{ position: "absolute", inset: 0, background: CAT_GRADIENTS[event.category] || "var(--we-ink)" }} />
+        )}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.7) 100%)" }} />
         {/* Back button */}
         <button
