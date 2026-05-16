@@ -29,7 +29,15 @@ export function DiscoveryHub() {
   return (
     <div style={{ background: "var(--we-paper)", minHeight: "100vh", maxWidth: 375, margin: "0 auto", position: "relative", fontFamily: "var(--ff-sans)", color: "var(--we-ink)", paddingBottom: 82 }}>
       {/* Top bar */}
-      <div style={{ padding: "12px 20px", display: "flex", alignItems: "center", gap: 12 }}>
+      <div style={{
+        paddingTop: "calc(env(safe-area-inset-top, 54px) + 12px)",
+        paddingBottom: 12,
+        paddingLeft: 20,
+        paddingRight: 20,
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+      }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{
             width: 28, height: 28, borderRadius: 8, background: "var(--we-ink)", color: "#fff",
